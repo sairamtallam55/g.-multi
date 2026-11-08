@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Leaflet map styling enhancements */
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 15 !important;
+}
+
+/* Custom Marker styling */
+.custom-leaflet-marker {
+  background: transparent;
+  border: none;
+}
+
+/* Hide scrollbars for neat horizontal pill scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area for mobile navigation bars */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Godavari Sahaaya - Pushkaralu 2027",
+  "description": "AI-Powered Multilingual Pilgrim Assistance Platform for Godavari Pushkaralu 2027 with smart facility finder, interactive ghat maps, emergency services, offline guide, and multilingual AI assistant.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

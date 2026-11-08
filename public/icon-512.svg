@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a2540" />
+      <stop offset="60%" stop-color="#0f4c64" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#a7f3d0" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle with soft border -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)" />
+  <circle cx="256" cy="256" r="230" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-dasharray="10 6" opacity="0.4" />
+  
+  <!-- Sacred Sun / Pushkar Halo -->
+  <circle cx="256" cy="180" r="70" fill="url(#goldGrad)" opacity="0.85" />
+  <circle cx="256" cy="180" r="85" fill="none" stroke="#fbbf24" stroke-width="3" opacity="0.5" stroke-dasharray="8 8" />
+
+  <!-- Temple Gopuram / Pushkar Ghat Silhouette -->
+  <path d="M 256 100 L 275 145 L 290 145 L 280 180 L 305 180 L 295 220 L 320 220 L 310 260 L 202 260 L 192 220 L 217 220 L 207 180 L 232 180 L 222 145 L 237 145 Z" fill="#ffffff" opacity="0.95" />
+  <!-- Kalash on top -->
+  <circle cx="256" cy="90" r="10" fill="url(#goldGrad)" />
+  <polygon points="256,70 252,85 260,85" fill="#f59e0b" />
+
+  <!-- Sacred Godavari River Waves (Pushkaralu Flow) -->
+  <path d="M 60 320 C 120 290 180 340 256 315 C 330 290 390 335 452 315 L 452 355 C 390 375 330 330 256 355 C 180 380 120 330 60 360 Z" fill="url(#riverGrad)" opacity="0.95" />
+  <path d="M 60 365 C 130 340 190 385 256 360 C 322 335 382 380 452 360 L 452 395 C 382 415 322 370 256 395 C 190 420 130 375 60 400 Z" fill="#38bdf8" opacity="0.8" />
+  <path d="M 60 410 C 135 390 195 425 256 405 C 317 385 377 420 452 405 L 452 435 C 377 450 317 415 256 435 C 195 455 135 420 60 440 Z" fill="#0284c7" opacity="0.7" />
+
+  <!-- Diya / Sacred Lamp Floating on River -->
+  <ellipse cx="256" cy="310" rx="36" ry="12" fill="#d97706" />
+  <ellipse cx="256" cy="308" rx="30" ry="8" fill="#fbbf24" />
+  <path d="M 256 270 Q 268 295 256 304 Q 244 295 256 270 Z" fill="#ef4444" />
+  <circle cx="256" cy="292" r="5" fill="#fef08a" />
+</svg>

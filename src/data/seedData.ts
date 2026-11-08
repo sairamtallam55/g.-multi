@@ -1,0 +1,1365 @@
+import type { Facility, Announcement, FAQ, SafetyGuideline } from '../types';
+
+export const INITIAL_FACILITIES: Facility[] = [
+  {
+    id: 'fac-ghat-01',
+    name: {
+      en: 'Kotilingala Revu Bathing Ghat',
+      te: 'కోటిలింగాల రేవ స్నాన ఘాట్',
+      hi: 'कोटिशिखर रेवु स्नान घाट'
+    },
+    category: 'bathing_ghat',
+    description: {
+      en: 'Major historical bathing ghat along the Godavari river equipped with safety barricades, changing rooms, and lifeguard towers.',
+      te: 'గోదావరి నది ఒడ్డున ఉన్న చారిత్రక ప్రధాన స్నాన ఘాట్. రక్షణ బారికేడ్లు, దుస్తులు మార్చుకునే గదులు, లైఫ్‌గార్డ్ పర్యవేక్షణ కలదు.',
+      hi: 'गोदावरी नदी के किनारे ऐतिहासिक मुख्य स्नान घाट। सुरक्षा बैरिकेड, चेंजिंग रूम और लाइफगार्ड निगरानी उपलब्ध है।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Kotilingala Revu Road, Rajamahendravaram, AP 533101',
+    latitude: 17.0028,
+    longitude: 81.7745,
+    contactNumber: '0883-2470001',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Demonstration Setup for Pushkaralu 2027 Planning',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Wheelchair Ramp', 'Railing Support', 'Non-slip Mats'],
+    capacityEstimated: '15,000 pilgrims/hour'
+  },
+  {
+    id: 'fac-ghat-02',
+    name: {
+      en: 'Pushkar Ghat (Main Ghat)',
+      te: 'పుష్కర్ ఘాట్ (ప్రధాన ఘాట్)',
+      hi: 'पुष्कर घाट (मुख्य घाट)'
+    },
+    category: 'bathing_ghat',
+    description: {
+      en: 'Central ceremonial bathing ghat with grand steps, auspicious puja pavilions, and dedicated pilgrim queues.',
+      te: 'ప్రధాన ఉత్సవ స్నాన ఘాట్. విశాలమైన మెట్లు, పూజా మండపాలు, క్యూ లైన్ల ఏర్పాట్లు కలవు.',
+      hi: 'मुख्य औपचारिक स्नान घाट। चौड़ी सीढ़ियाँ, पूजा मंडप और कतार प्रबंधन की सुविधा उपलब्ध है।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Near Old Godavari Bridge, Rajamahendravaram, AP 533101',
+    latitude: 16.9972,
+    longitude: 81.7720,
+    contactNumber: '0883-2470002',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Pushkaralu Mock Plan 2027',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Wheelchair Access', 'Dedicated Senior Citizen Zone'],
+    capacityEstimated: '25,000 pilgrims/hour'
+  },
+  {
+    id: 'fac-ghat-03',
+    name: {
+      en: 'Saraswati Ghat',
+      te: 'సరస్వతి ఘాట్',
+      hi: 'सरस्वती घाट'
+    },
+    category: 'bathing_ghat',
+    description: {
+      en: 'Peaceful bathing ghat situated upstream, ideal for holy dip, meditation, and family morning snanam.',
+      te: 'ప్రశాంతమైన స్నాన ఘాట్. పవిత్ర స్నానాలు మరియు కుటుంబ సభ్యులతో స్నానాలకు అనువైనది.',
+      hi: 'शांत स्नान घाट, पवित्र स्नान और पारिवारिक सुबह के स्नान के लिए उपयुक्त।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Aryapuram Water Works Area, Rajamahendravaram, AP 533104',
+    latitude: 17.0125,
+    longitude: 81.7820,
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Demonstration Dataset',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Gradual incline steps', 'Safety netting'],
+    capacityEstimated: '10,000 pilgrims/hour'
+  },
+  {
+    id: 'fac-ghat-04',
+    name: {
+      en: 'Goshpada Kshetram Ghat',
+      te: 'గోష్పాద క్షేత్రం ఘాట్ (కొవ్వూరు)',
+      hi: 'गोष्पद क्षेत्रम घाट (कोव्वुर)'
+    },
+    category: 'bathing_ghat',
+    description: {
+      en: 'Revered pilgrimage ghat on the Kovvur bank of Godavari with sacred footprint shrines and wide holy bathing steps.',
+      te: 'గోదావరి పశ్చిమ తీరం కొవ్వూరు వద్ద గల పవిత్ర గోష్పాద క్షేత్ర స్నాన ఘాట్.',
+      hi: 'कोव्वुर की ओर गोदावरी नदी पर स्थित पवित्र गोष्पद क्षेत्र स्नान घाट।'
+    },
+    locality: 'Kovvur',
+    address: 'Goshpada Kshetram Road, Kovvur, AP 534350',
+    latitude: 17.0160,
+    longitude: 81.7280,
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Demonstration Dataset',
+    isDemo: true,
+    lastUpdated: '2026-11-02',
+    accessibilityFeatures: ['Assisted Ramp', 'Braille Signage'],
+    capacityEstimated: '18,000 pilgrims/hour'
+  },
+  {
+    id: 'fac-hosp-01',
+    name: {
+      en: 'Pushkaralu Central Trauma & Medical Camp',
+      te: 'పుష్కరాల కేంద్ర అత్యవసర వైద్య శిబిరం',
+      hi: 'पुष्करालु केंद्रीय आपातकालीन चिकित्सा शिविर'
+    },
+    category: 'medical_camp',
+    description: {
+      en: '24/7 fully equipped multi-bed emergency medical facility with ICU ambulance stationed, oxygen, and emergency triage doctors.',
+      te: '24/7 అత్యవసర వైద్య శిబిరం. ఐసీయూ అంబులెన్స్, ఆక్సిజన్ మరియు వైద్య నిపుణులు అందుబాటులో ఉంటారు.',
+      hi: '24/7 आपातकालीन चिकित्सा शिविर। आईसीयू एम्बुलेंस, ऑक्सीजन और विशेषज्ञ डॉक्टर तैनात।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Opposite Municipal Stadium, Rajamahendravaram, AP 533101',
+    latitude: 16.9995,
+    longitude: 81.7765,
+    contactNumber: '0883-2470108',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Health Department Demo Mock',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Stretcher Access', 'Wheelchair Station']
+  },
+  {
+    id: 'fac-hosp-02',
+    name: {
+      en: 'District Government General Hospital',
+      te: 'జిల్లా ప్రభుత్వ సర్వజన ఆసుపత్రి',
+      hi: 'जिला सरकारी सामान्य अस्पताल'
+    },
+    category: 'hospital',
+    description: {
+      en: 'Apex tertiary care hospital with designated Pushkaralu emergency casualty block and 100 dedicated observation beds.',
+      te: 'అన్ని సదుపాయాలు గల జిల్లా ప్రధాన ఆసుపత్రి, ప్రత్యేక పుష్కర విభాగం కలదు.',
+      hi: 'सभी सुविधाओं वाला जिला सामान्य अस्पताल, विशेष पुष्करालु वार्ड उपलब्ध।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Government Hospital Road, Danavaipeta, Rajamahendravaram, AP 533103',
+    latitude: 17.0090,
+    longitude: 81.7890,
+    contactNumber: '0883-2461102',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'District Medical Directory (Demo)',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Elevators', 'Ramps', 'Paramedic Desk']
+  },
+  {
+    id: 'fac-water-01',
+    name: {
+      en: 'Pushkar Ghat RO Pure Drinking Water Hub',
+      te: 'పుష్కర్ ఘాట్ ఆర్.ఓ శుద్ధ జల కేంద్రం',
+      hi: 'पुष्कर घाट आर.ओ. शुद्ध पेयजल केंद्र'
+    },
+    category: 'drinking_water',
+    description: {
+      en: 'Free chilled RO purified water distribution counter with continuous refilling taps for pilgrim flasks and water bottles.',
+      te: 'ఉచిత చల్లని శుద్ధ RO తాగునీటి కేంద్రం. బాటిల్స్ నింపుకునే సదుపాయం కలదు.',
+      hi: 'निःशुल्क ठंडा शुद्ध आरओ पेयजल वितरण केंद्र। बोतलों के लिए नल की सुविधा।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Entrance Plaza, Pushkar Ghat, Rajamahendravaram',
+    latitude: 16.9980,
+    longitude: 81.7730,
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Water Works Demo Plan',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Low height taps for children and wheelchair users']
+  },
+  {
+    id: 'fac-water-02',
+    name: {
+      en: 'Kotilingala Water Distribution Station #3',
+      te: 'కోటిలింగాల తాగునీటి సరఫరా కేంద్రం #3',
+      hi: 'कोटिशिखर पेयजल आपूर्ति केंद्र #3'
+    },
+    category: 'drinking_water',
+    description: {
+      en: 'High capacity municipal purified water booth with 16 continuous taps and disposable paper cup dispensaries.',
+      te: '16 కుళాయిలతో నిరంతర శుద్ధ జల పంపిణీ కేంద్రం.',
+      hi: '16 नलों वाला निरंतर शुद्ध पेयजल स्टेशन।'
+    },
+    locality: 'Rajahmundry',
+    address: 'North Pavilion, Kotilingala Revu, Rajamahendravaram',
+    latitude: 17.0040,
+    longitude: 81.7750,
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Water Works Demo Plan',
+    isDemo: true,
+    lastUpdated: '2026-11-01'
+  },
+  {
+    id: 'fac-toilet-01',
+    name: {
+      en: 'Bio-Toilet Complex & Shower Block A',
+      te: 'బయో టాయిలెట్లు & స్నానాల సముదాయం బ్లాక్ A',
+      hi: 'बायो-शौचालय व स्नानगृह ब्लॉक A'
+    },
+    category: 'public_toilet',
+    description: {
+      en: 'Modern eco-friendly sanitized bio-toilet complex with separate wings for men, women, and persons with disabilities.',
+      te: 'పరిశుభ్రమైన బయో టాయిలెట్లు, స్త్రీ పురుషులకు వేర్వేరు సదుపాయాలు మరియు దివ్యాంగుల సౌకర్యం.',
+      hi: 'स्वच्छ बायो-शौचालय, महिलाओं-पुरुषों के लिए अलग विंग और दिव्यांग अनुकूल।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Behind Pushkar Ghat Bus Bay, Rajamahendravaram',
+    latitude: 16.9965,
+    longitude: 81.7740,
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Sanitation Demo Grid',
+    isDemo: true,
+    lastUpdated: '2026-11-02',
+    accessibilityFeatures: ['Dedicated accessible toilet cabin', 'Grab rails']
+  },
+  {
+    id: 'fac-police-01',
+    name: {
+      en: 'Pushkar Ghat Integrated Police Outpost & Control',
+      te: 'పుష్కర్ ఘాట్ పోలీస్ అవుట్‌పోస్ట్ & కంట్రోల్ రూమ్',
+      hi: 'पुष्कर घाट एकीकृत पुलिस चौकी एवं नियंत्रण कक्ष'
+    },
+    category: 'police_station',
+    description: {
+      en: '24/7 Police outpost connected to CCTV drone surveillance command, lost person tracking, and crowd safety squad.',
+      te: '24/7 పోలీస్ అవుట్‌పోస్ట్, సీసీటీవీ డ్రోన్ నిఘా, తప్పిపోయిన వారి వివరాల నమోదు.',
+      hi: '24/7 पुलिस चौकी, सीसीटीवी ड्रोन निगरानी और खोए हुए लोगों की सहायता डेस्क।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Near Old Godavari Bridge Gate 1, Rajamahendravaram',
+    latitude: 16.9975,
+    longitude: 81.7715,
+    contactNumber: '0883-2470100',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Law & Order Demo Grid',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Help desk at ground level', 'Public address mic']
+  },
+  {
+    id: 'fac-help-01',
+    name: {
+      en: 'Pilgrim May I Help You Desk #1 (Main Bus Stand)',
+      te: 'యాత్రికుల సహాయ కేంద్రం #1 (ప్రధాన బస్ స్టాండ్)',
+      hi: 'तीर्थयात्री सहायता केंद्र #1 (मुख्य बस स्टैंड)'
+    },
+    category: 'help_desk',
+    description: {
+      en: 'Multilingual volunteer assistance counter offering maps, queue guidance, ghat schedules, and general inquiries.',
+      te: 'బహుభాషా స్వచ్ఛంద సహాయ కేంద్రం. ఉచిత మ్యాపులు, క్యూ వివరాలు మరియు మార్గదర్శనం.',
+      hi: 'बहुभाषी स्वयंसेवक सहायता केंद्र। मुफ्त नक्शे, कतार मार्गदर्शन और सामान्य जानकारी।'
+    },
+    locality: 'Rajahmundry',
+    address: 'APSRTC Central Bus Station Concourse, Rajamahendravaram',
+    latitude: 17.0010,
+    longitude: 81.7840,
+    contactNumber: '0883-2470999',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Pilgrim Welfare Demo',
+    isDemo: true,
+    lastUpdated: '2026-11-01'
+  },
+  {
+    id: 'fac-bus-01',
+    name: {
+      en: 'Pushkaralu Satellite Bus Terminal North',
+      te: 'పుష్కరాల ఉత్తర ఉపగ్రహ బస్ టెర్మినల్',
+      hi: 'पुष्करालु उत्तरी उपग्रह बस टर्मिनल'
+    },
+    category: 'bus_stop',
+    description: {
+      en: 'Free feeder shuttle bus boarding point connecting outer parking zones directly to Kotilingala and Pushkar Ghats.',
+      te: 'ఔటర్ పార్కింగ్ నుండి ఘాట్లకు ఉచిత షటిల్ బస్సుల బోర్డింగ్ పాయింట్.',
+      hi: 'बाहरी पार्किंग से सीधे घाटों के लिए निःशुल्क शटल बस बोर्डिंग पॉइंट।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Morampudi Junction Bypass, Rajamahendravaram, AP 533107',
+    latitude: 17.0250,
+    longitude: 81.8010,
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Transport Dept Demo Plan',
+    isDemo: true,
+    lastUpdated: '2026-11-02'
+  },
+  {
+    id: 'fac-park-01',
+    name: {
+      en: 'Outer Free Vehicle Parking Zone P-1 (Lalacheruvu)',
+      te: 'బాహ్య ఉచిత వాహన పార్కింగ్ జోన్ P-1 (లాలాచెరువు)',
+      hi: 'बाहरी निःशुल्क वाहन पार्किंग ज़ोन P-1 (लालाचेरुवु)'
+    },
+    category: 'parking_area',
+    description: {
+      en: 'Designated parking for tourist buses, cars, and two-wheelers with lighting, washrooms, and free shuttle connectivity.',
+      te: 'టూరిస్ట్ బస్సులు, కార్లు, బైకులకు ఉచిత పార్కింగ్. లైటింగ్, మరుగుదొడ్లు మరియు షటిల్ బస్ సౌకర్యం కలదు.',
+      hi: 'बसों, कारों और दोपहिया वाहनों के लिए निःशुल्क पार्किंग स्थल। शौचालय व शटल बस सुविधा।'
+    },
+    locality: 'Rajahmundry',
+    address: 'NH-16 Lalacheruvu Grounds, Rajamahendravaram, AP 533106',
+    latitude: 17.0380,
+    longitude: 81.8150,
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Traffic Police Demo Grid',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    capacityEstimated: '3,000 cars / 400 buses'
+  },
+  {
+    id: 'fac-food-01',
+    name: {
+      en: 'Free Annadanam Mandapam (Community Meal Hall)',
+      te: 'ఉచిత అన్నదాన మండపం',
+      hi: 'निःशुल्क अन्नदान मंडप (भोजनशाला)'
+    },
+    category: 'food_assistance',
+    description: {
+      en: 'Hygienic wholesome satvik vegetarian meals served free to all pilgrims and visitors under clean seated hall facilities.',
+      te: 'యాత్రికులందరికీ ఉచిత సాత్విక భోజనం మరియు తాగునీటి ఏర్పాట్లు గల అన్నదాన సత్రం.',
+      hi: 'सभी श्रद्धालुओं के लिए स्वच्छ और स्वादिष्ट निःशुल्क सात्विक भोजन व्यवस्था।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Near Subramanya Swamy Temple Grounds, Rajamahendravaram',
+    latitude: 17.0065,
+    longitude: 81.7790,
+    availabilityStatus: 'DAY_HOURS',
+    verificationStatus: 'DEMO',
+    source: 'Endowments Demo Plan',
+    isDemo: true,
+    lastUpdated: '2026-11-02'
+  },
+  {
+    id: 'fac-access-01',
+    name: {
+      en: 'Divyang & Senior Citizen Battery Vehicle Station',
+      te: 'దివ్యాంగులు మరియు వృద్ధుల బ్యాటరీ వాహన కేంద్రం',
+      hi: 'दिव्यांग व वरिष्ठ नागरिक बैटरी वाहन स्टेशन'
+    },
+    category: 'accessibility_assistance',
+    description: {
+      en: 'Complimentary battery operated buggy transit service from main road drop-off point directly to designated ghat ramps.',
+      te: 'ప్రధాన రహదారి నుండి ఘాట్ వద్దకు ఉచిత బ్యాటరీ ఆటో/బగ్గీ వాహన సర్వీస్.',
+      hi: 'मुख्य सड़क से घाट तक निःशुल्क बैटरी संचालित वाहन सुविधा।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Subbalakshmi Nagar Junction Gate, Rajamahendravaram',
+    latitude: 16.9985,
+    longitude: 81.7755,
+    contactNumber: '0883-2470123',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'Social Welfare Demo',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Wheelchair Transfer', 'Dedicated Attendants', 'Rest Benches']
+  },
+  {
+    id: 'fac-lost-01',
+    name: {
+      en: 'Central Lost & Found Pilgrim Reunification Camp',
+      te: 'కేంద్ర తప్పిపోయిన వారి సహాయ మరియు కలయిక కేంద్రం',
+      hi: 'केंद्रीय खोया-पाया एवं परिवार पुनर्मिलन शिविर'
+    },
+    category: 'lost_found_desk',
+    description: {
+      en: 'Equipped with digital photo matching, multilingual public address systems across all ghats, and secure shelter for children.',
+      te: 'డిజిటల్ ఫోటో మ్యాచ్, అన్ని ఘాట్లలో మైక్ ప్రకటనలు మరియు పిల్లల సురక్షిత సంరక్షణ గది.',
+      hi: 'डिजिटल फोटो मिलान, लाउडस्पीकर घोषणाएं और बच्चों के लिए सुरक्षित आश्रय।'
+    },
+    locality: 'Rajahmundry',
+    address: 'Municipal Corporation Plaza, Main Road, Rajamahendravaram',
+    latitude: 17.0020,
+    longitude: 81.7810,
+    contactNumber: '0883-2470112',
+    availabilityStatus: 'OPEN_24_7',
+    verificationStatus: 'DEMO',
+    source: 'District Administration Demo',
+    isDemo: true,
+    lastUpdated: '2026-11-01',
+    accessibilityFeatures: ['Trained Counselors', 'Child Friendly Corner']
+  }
+];
+
+export const INITIAL_ANNOUNCEMENTS: Announcement[] = [
+  {
+    id: 'ann-01',
+    title: {
+      en: 'Welcome to Godavari Pushkaralu 2027 Information Portal',
+      te: 'గోదావరి పుష్కరాలు 2027 సమాచార వేదికకు స్వాగతం',
+      hi: 'गोदावरी पुष्करालु 2027 सूचना पोर्टल में आपका स्वागत है'
+    },
+    description: {
+      en: 'This digital companion platform provides safe navigation, medical discovery, and ghat assistance for pilgrims attending Godavari Pushkaralu 2027. (DEMO DATA — NOT OFFICIAL)',
+      te: 'ఈ డిజిటల్ సహాయ వేదిక భక్తులకు స్నాన ఘాట్లు, వైద్య శిబిరాలు, సహాయ కేంద్రాల సమాచారాన్ని అందిస్తుంది. (డెమో సమాచారం — అధికారికం కాదు)',
+      hi: 'यह डिजिटल साथी पोर्टल श्रद्धालुओं को स्नान घाटों, चिकित्सा शिविरों और सहायता केंद्रों की जानकारी प्रदान करता है। (डेमो डेटा - आधिकारिक नहीं)'
+    },
+    category: 'festival_info',
+    priority: 'HIGH',
+    publicationDate: '2026-11-01',
+    source: 'Platform Demonstration Notice',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-02',
+    title: {
+      en: 'River Safety Advisory: Please Bathe Only Within Marked Chains and Barricades',
+      te: 'నది భద్రతా సూచన: మార్క్ చేయబడిన గొలుసులు మరియు బారికేడ్ల పరిధిలోనే స్నానం చేయండి',
+      hi: 'नदी सुरक्षा सलाह: कृपया केवल चिह्नित जंजीरों और बैरिकेड्स के भीतर ही स्नान करें'
+    },
+    description: {
+      en: 'Godavari river currents can be swift. Never cross the floating boundary buoys or dive into deep water sections. Follow instructions from lifeguards and coastal security police.',
+      te: 'గోదావరి నది ప్రవాహం వేగంగా ఉండవచ్చు. తేలియాడే రక్షణ బారికేడ్లను దాటవద్దు, లోతైన నీటిలోకి వెళ్లవద్దు. లైఫ్‌గార్డుల సూచనలు పాటించండి.',
+      hi: 'गोदावरी नदी का बहाव तेज हो सकता है। सुरक्षा बैरिकेड्स को कभी न लांघें और गहरे पानी में न जाएं।'
+    },
+    category: 'safety_alert',
+    priority: 'CRITICAL',
+    publicationDate: '2026-11-02',
+    source: 'Demonstration River Safety Advisory',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-03',
+    title: {
+      en: 'Complimentary Electric Buggy Transit for Seniors & Divyangjan',
+      te: 'వృద్ధులు & దివ్యాంగుల కోసం ఉచిత బ్యాటరీ వాహన సదుపాయం',
+      hi: 'वरिष्ठ नागरिकों और दिव्यांगों के लिए निःशुल्क बैटरी वाहन सेवा'
+    },
+    description: {
+      en: 'Dedicated electric shuttles operate between Subbalakshmi Nagar gate and Pushkar Ghat ramp for pilgrims requiring mobility support.',
+      te: 'సుబ్బలక్ష్మి నగర్ గేట్ నుండి పుష్కర్ ఘాట్ వరకు నడక కష్టమైన భక్తుల కోసం బ్యాటరీ బగ్గీలు తిరుగుతాయి.',
+      hi: 'वरिष्ठ व दिव्यांग श्रद्धालुओं के लिए सुब्बालक्ष्मी नगर से पुष्कर घाट तक निःशुल्क वाहन उपलब्ध।'
+    },
+    category: 'facility_update',
+    priority: 'MEDIUM',
+    publicationDate: '2026-11-03',
+    source: 'Social Welfare Demo',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-04',
+    title: {
+      en: 'Free Feeder Buses Active from Outer Parking Lots P1 to P4',
+      te: 'ఔటర్ పార్కింగ్ P1 నుండి P4 వరకు ఉచిత ఫీడర్ బస్సులు ప్రారంభం',
+      hi: 'बाहरी पार्किंग P1 से P4 से निःशुल्क फीडर बसें सक्रिय'
+    },
+    description: {
+      en: 'Pilgrims parking at Lalacheruvu and Diwancheruvu grounds can board frequent green-shuttle buses to city central bus bay at no charge.',
+      te: 'లాలాచెరువు మరియు దివాన్‌చెరువు వద్ద వాహనాలు నిలిపిన భక్తులు ఉచిత గ్రీన్ షటిల్ బస్సులను ఉపయోగించుకోవచ్చు.',
+      hi: 'लालाचेरुवु पार्किंग से शहर के मुख्य बस बे तक निःशुल्क शटल बसें निरंतर उपलब्ध हैं।'
+    },
+    category: 'transport_update',
+    priority: 'HIGH',
+    publicationDate: '2026-11-03',
+    source: 'Transport Dept Simulation',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-05',
+    title: {
+      en: 'Heat Hydration Alert: Drink Filtered Water Regularly',
+      te: 'ఎండ తీవ్రత & తాగునీటి జాగ్రత్తలు: పుష్కలంగా నీరు త్రాగండి',
+      hi: 'गर्मी से बचाव व जलयोजन सलाह: पर्याप्त पानी पिएं'
+    },
+    description: {
+      en: 'Stay hydrated during morning and noon visits. Free RO purified drinking water stations and buttermilk booths are stationed at all major road corners.',
+      te: 'ఎండ తీవ్రత నుండి రక్షణ పొందడానికి తగినంత నీరు త్రాగండి. అన్ని కూడళ్లలో ఉచిత చల్లని తాగునీరు, మజ్జిగ కేంద్రాలు అందుబాటులో ఉన్నాయి.',
+      hi: 'धूप से बचाव के लिए नियमित रूप से पानी पिएं। सभी चौराहों पर निःशुल्क पेयजल व छाछ केंद्र मौजूद हैं।'
+    },
+    category: 'medical_info',
+    priority: 'MEDIUM',
+    publicationDate: '2026-11-04',
+    source: 'Health Cell Simulation',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-06',
+    title: {
+      en: 'Lost Family Member Assistance: Visit Nearest Help Desk',
+      te: 'తప్పిపోయిన కుటుంబ సభ్యుల సహాయం: సమీప హెల్ప్ డెస్క్‌ను సంప్రదించండి',
+      hi: 'खोए हुए परिवार के सदस्य की सहायता: निकटतम हेल्प डेस्क पर जाएं'
+    },
+    description: {
+      en: 'In case of separation in crowded areas, approach the nearest police post or public address cabin immediately.',
+      te: 'రద్దీ ప్రదేశాలలో ఎవరైనా తప్పిపోతే వెంటనే సమీప పోలీస్ పోస్ట్ లేదా మైక్ అనౌన్స్‌మెంట్ క్యాబిన్‌ను సంప్రదించండి.',
+      hi: 'भीड़ में किसी के बिछड़ जाने पर तुरंत निकटतम पुलिस चौकी या लाउडस्पीकर केबिन से संपर्क करें।'
+    },
+    category: 'safety_alert',
+    priority: 'HIGH',
+    publicationDate: '2026-11-04',
+    source: 'Police Safety Simulation',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-07',
+    title: {
+      en: 'Kovvur Goshpada Kshetram Ghat Entry Lanes Reorganized for Smooth Flow',
+      te: 'కొవ్వూరు గోష్పాద క్షేత్రం ఘాట్ ప్రవేశ మార్గాల క్రమబద్ధీకరణ',
+      hi: 'कोव्वुर गोष्पद क्षेत्रम घाट प्रवेश मार्ग सुव्यवस्थित'
+    },
+    description: {
+      en: 'Barricaded queue lines have been adjusted to ensure seamless one-way pedestrian circulation into the ghat steps.',
+      te: 'ఘాట్ మెట్లలోకి ఒకే దిశలో క్రమబద్ధంగా వెళ్లడానికి వీలుగా బారికేడ్ క్యూ లైన్లు ఏర్పాటు చేయబడ్డాయి.',
+      hi: 'घाट की सीढ़ियों पर एकतरफा पैदल आवागमन सुचारू रखने के लिए कतारें पुनः व्यवस्थित की गई हैं।'
+    },
+    category: 'route_advisory',
+    priority: 'MEDIUM',
+    publicationDate: '2026-11-05',
+    source: 'Kovvur Police Mock Advisory',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-08',
+    title: {
+      en: 'Eco-Friendly Pushkaralu: Avoid Plastic Bags & River Pollution',
+      te: 'పర్యావరణ హిత పుష్కరాలు: ప్లాస్టిక్ సంచులు వాడవద్దు, నదిని శుభ్రంగా ఉంచండి',
+      hi: 'पर्यावरण अनुकूल पुष्करालु: प्लास्टिक का उपयोग न करें, नदी स्वच्छ रखें'
+    },
+    description: {
+      en: 'Single-use plastics are prohibited along all river ghat concourses. Please utilize municipal cloth bag counters.',
+      te: 'నదీ తీరాలలో ప్లాస్టిక్ నిషేధించబడింది. మునిసిపల్ క్లాత్ బ్యాగ్ కౌంటర్లను ఉపయోగించండి.',
+      hi: 'नदी तटों पर सिंगल-यूज प्लास्टिक प्रतिबंधित है। कृपया कपड़ा थैला केंद्रों का उपयोग करें।'
+    },
+    category: 'general',
+    priority: 'LOW',
+    publicationDate: '2026-11-05',
+    source: 'Sanitation Cell Simulation',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-09',
+    title: {
+      en: 'Emergency Medical Helplines Active 24x7: Dial 108 or 112',
+      te: 'అత్యవసర వైద్య హెల్ప్‌లైన్లు 24x7 అందుబాటులో: 108 లేదా 112 కు కాల్ చేయండి',
+      hi: 'आपातकालीन चिकित्सा हेल्पलाइन 24x7 सक्रिय: 108 या 112 डायल करें'
+    },
+    description: {
+      en: 'Medical trauma response and mobile ambulance dispatch teams are on round-the-clock standby across all Pushkaralu sectors.',
+      te: 'అన్ని పుష్కర రంగాలలో వైద్య అత్యవసర బృందాలు మరియు అంబులెన్సులు 24 గంటలూ అందుబాటులో ఉంటాయి.',
+      hi: 'सभी पुष्करालु क्षेत्रों में चिकित्सा ट्रॉमा दल और एम्बुलेंस 24 घंटे तत्पर हैं।'
+    },
+    category: 'medical_info',
+    priority: 'CRITICAL',
+    publicationDate: '2026-11-05',
+    source: 'National Emergency Directory',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-10',
+    title: {
+      en: 'Temple Timings and Special Darshan Queue Information (Demo Overview)',
+      te: 'దేవాలయ సమయాలు మరియు ప్రత్యేక దర్శనం క్యూ సమాచారం (డెమో)',
+      hi: 'मंदिर समय और विशेष दर्शन कतार की जानकारी (डेमो)'
+    },
+    description: {
+      en: 'Special darshan queues operate from 5:00 AM to 10:00 PM with dedicated senior citizen lines.',
+      te: 'ఉదయం 5:00 నుండి రాత్రి 10:00 వరకు ప్రత్యేక దర్శనం క్యూలు మరియు వృద్ధులకు ప్రత్యేక వరుసలు ఉంటాయి.',
+      hi: 'सुबह 5:00 से रात 10:00 बजे तक विशेष दर्शन कतारें और वरिष्ठ नागरिकों के लिए अलग लाइन रहेगी।'
+    },
+    category: 'festival_info',
+    priority: 'LOW',
+    publicationDate: '2026-11-06',
+    source: 'Endowments Mock Desk',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-11',
+    title: {
+      en: 'Child Safety Identification Wristband Distribution at Help Desks',
+      te: 'పిల్లల భద్రత కోసం ఫోన్ నంబర్ రిస్ట్‌బ్యాండ్ల పంపిణీ',
+      hi: 'बच्चों की सुरक्षा हेतु संपर्क रिस्टबैंड वितरण'
+    },
+    description: {
+      en: 'Parents can obtain free contact identification wristbands for children at all police outposts.',
+      te: 'తల్లిదండ్రులు అన్ని పోలీస్ అవుట్‌పోస్ట్‌ల వద్ద పిల్లల కోసం ఉచిత గుర్తింపు రిస్ట్‌బ్యాండ్లను పొందవచ్చు.',
+      hi: 'अभिभावक सभी पुलिस चौकियों से बच्चों के लिए निःशुल्क पहचान रिस्टबैंड प्राप्त कर सकते हैं।'
+    },
+    category: 'safety_alert',
+    priority: 'HIGH',
+    publicationDate: '2026-11-06',
+    source: 'Child Care Welfare Demo',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-12',
+    title: {
+      en: 'Special Ghat Cleaning Schedule Between 1:00 PM and 2:30 PM',
+      te: 'మధ్యాహ్నం 1:00 నుండి 2:30 వరకు ఘాట్ల ప్రత్యేక పారిశుద్ధ్య సమయం',
+      hi: 'दोपहर 1:00 से 2:30 बजे तक घाटों की विशेष स्वच्छता अभियान'
+    },
+    description: {
+      en: 'Daily sanitation maintenance and water jet washing of steps occurs during low-density afternoon hours.',
+      te: 'మధ్యాహ్నం రద్దీ తక్కువగా ఉన్న సమయంలో ఘాట్ మెట్ల శుభ్రత మరియు జెట్ వాష్ నిర్వహించబడుతుంది.',
+      hi: 'दोपहर के समय सीढ़ियों की सफाई और जेट वॉश का दैनिक स्वच्छता कार्य संपन्न होता है।'
+    },
+    category: 'facility_update',
+    priority: 'LOW',
+    publicationDate: '2026-11-06',
+    source: 'Municipal Demo Bulletin',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-13',
+    title: {
+      en: 'Heavy Vehicle Diversions on NH-16 Near Godavari Fourth Bridge',
+      te: 'గోదావరి నాల్గవ వంతెన వద్ద భారీ వాహనాల దారి మళ్లింపు',
+      hi: 'गोदावरी चौथे पुल के पास भारी वाहनों का मार्ग परिवर्तन'
+    },
+    description: {
+      en: 'Commercial goods trucks are diverted via outer bypass to facilitate smooth pilgrim vehicle and bus transit.',
+      te: 'తీర్థయాత్రికుల వాహనాల రద్దీని నివారించడానికి వాణిజ్య ట్రక్కులను ఔటర్ బైపాస్ ద్వారా మళ్లించారు.',
+      hi: 'तीर्थयात्रियों की सुगम यात्रा हेतु भारी ट्रकों को बाहरी बाईपास से डायवर्ट किया गया है।'
+    },
+    category: 'route_advisory',
+    priority: 'HIGH',
+    publicationDate: '2026-11-07',
+    source: 'Traffic Control Mock Bulletin',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-14',
+    title: {
+      en: 'Lost Items Locker Counter Setup at Central Police Desk',
+      te: 'కేంద్ర పోలీస్ డెస్క్ వద్ద దొరికిన వస్తువుల భద్రతా కేంద్రం',
+      hi: 'केंद्रीय पुलिस हेल्प डेस्क पर खोई वस्तुओं का सुरक्षित काउंटर'
+    },
+    description: {
+      en: 'Found bags and identity documents deposited at Pushkar Ghat Gate 1 can be claimed with valid verification.',
+      te: 'పుష్కర్ ఘాట్ గేట్ 1 వద్ద దొరికిన బ్యాగులు మరియు గుర్తింపు పత్రాలను సరైన ఆధారాలతో క్లెయిమ్ చేసుకోవచ్చు.',
+      hi: 'पुष्कर घाट गेट 1 पर जमा किए गए खोए बैग व दस्तावेज पहचान पत्र दिखाकर प्राप्त किए जा सकते हैं।'
+    },
+    category: 'facility_update',
+    priority: 'MEDIUM',
+    publicationDate: '2026-11-07',
+    source: 'Police Administration Demo',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  },
+  {
+    id: 'ann-15',
+    title: {
+      en: 'Weather Outlook: Pleasant Mornings and Clear Skies Forecasted',
+      te: 'వాతావరణ నివేదిక: ఆహ్లాదకరమైన ఉదయాలు, నిర్మలమైన ఆకాశం',
+      hi: 'मौसम का पूर्वानुमान: सुखद सुबह और साफ मौसम'
+    },
+    description: {
+      en: 'Pilgrims are advised to complete sacred holy bath during early morning hours for the most comfortable experience.',
+      te: 'సౌకర్యవంతమైన స్నానం కోసం ఉదయం వేళల్లో పవిత్ర స్నానాలు ఆచరించడం మంచిది.',
+      hi: 'सुखद अनुभव के लिए सुबह के समय पवित्र स्नान संपन्न करने की सलाह दी जाती है।'
+    },
+    category: 'general',
+    priority: 'LOW',
+    publicationDate: '2026-11-07',
+    source: 'Weather Advisory Simulation',
+    verificationStatus: 'DEMO',
+    isPublished: true,
+    isDemo: true
+  }
+];
+
+export const INITIAL_FAQS: FAQ[] = [
+  {
+    id: 'faq-01',
+    category: 'Ghats & Snanam',
+    question: {
+      en: 'Which is the primary ceremonial bathing ghat in Rajahmundry?',
+      te: 'రాజమండ్రిలో ప్రధాన ఉత్సవ స్నాన ఘాట్ ఏది?',
+      hi: 'राजमुंदरी में मुख्य औपचारिक स्नान घाट कौन सा है?'
+    },
+    answer: {
+      en: 'Pushkar Ghat and Kotilingala Ghat are the two major ceremonial bathing ghats in Rajahmundry. Both feature broad steps, safety barricades, and changing enclosures. (DEMO DATA)',
+      te: 'పుష్కర్ ఘాట్ మరియు కోటిలింగాల ఘాట్ రాజమండ్రిలో ప్రధానమైనవి. రక్షణ బారికేడ్లు మరియు వస్త్ర మార్పిడి గదులు కలవు.',
+      hi: 'पुष्कर घाट और कोटिशिखर घाट राजमुंदरी के दो प्रमुख औपचारिक स्नान घाट हैं।'
+    },
+    source: 'Godavari Pushkaralu FAQ Guide',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-02',
+    category: 'Emergency & Medical',
+    question: {
+      en: 'Where can I find emergency medical assistance or first aid?',
+      te: 'అత్యవసర వైద్య సహాయం లేదా ప్రథమ చికిత్స ఎక్కడ లభిస్తుంది?',
+      hi: 'मुझे आपातकालीन चिकित्सा सहायता या प्राथमिक उपचार कहाँ मिल सकता है?'
+    },
+    answer: {
+      en: 'Medical camps are set up near all major ghat entrances, with the Central Trauma Camp opposite the Municipal Stadium. For urgent ambulance dispatch, call 108 or national emergency 112.',
+      te: 'అన్ని ప్రధాన ఘాట్ల ప్రవేశ మార్గాల వద్ద వైద్య శిబిరాలు ఉన్నాయి. అత్యవసర అంబులెన్స్ కోసం 108 లేదా 112 కు కాల్ చేయండి.',
+      hi: 'सभी प्रमुख घाटों के प्रवेश द्वार पर चिकित्सा शिविर हैं। आपातकालीन एम्बुलेंस के लिए 108 या 112 डायल करें।'
+    },
+    source: 'Health Emergency Guidelines',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-03',
+    category: 'Water & Sanitation',
+    question: {
+      en: 'Where is free safe drinking water available?',
+      te: 'ఉచిత సురక్షిత తాగునీరు ఎక్కడ లభిస్తుంది?',
+      hi: 'निःशुल्क सुरक्षित पेयजल कहाँ उपलब्ध है?'
+    },
+    answer: {
+      en: 'Continuous chilled RO purified water taps are placed at every 100 meters along ghat concourses, bus terminals, and parking zones.',
+      te: 'ఘాట్ల వద్ద, బస్ టెర్మినల్స్ మరియు పార్కింగ్ స్థలాలలో ప్రతి 100 మీటర్లకు శుద్ధ RO తాగునీటి కుళాయిలు కలవు.',
+      hi: 'घाटों, बस टर्मिनलों और पार्किंग क्षेत्रों में हर 100 मीटर पर आरओ पेयजल नल लगाए गए हैं।'
+    },
+    source: 'Civic Amenities Guide',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-04',
+    category: 'Safety',
+    question: {
+      en: 'What should I do if a family member gets separated in the crowd?',
+      te: 'రద్దీలో కుటుంబ సభ్యులు తప్పిపోతే ఏమి చేయాలి?',
+      hi: 'यदि भीड़ में परिवार का कोई सदस्य बिछड़ जाए तो क्या करें?'
+    },
+    answer: {
+      en: 'Immediately escort any separated child or senior to the nearest Police Help Desk or the Central Lost & Found Camp. Announcements will be broadcast across all ghat speakers.',
+      te: 'వెంటనే సమీప పోలీస్ సహాయ కేంద్రం లేదా తప్పిపోయిన వారి కేంద్రానికి వెళ్లండి. అన్ని ఘాట్లలో మైక్ ద్వారా ప్రకటన చేయబడుతుంది.',
+      hi: 'तुरंत निकटतम पुलिस सहायता केंद्र या केंद्रीय खोया-पाया शिविर में जाएं। सभी घाटों पर लाउडस्पीकर द्वारा घोषणा की जाएगी।'
+    },
+    source: 'Police Crowd Safety Protocol',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-05',
+    category: 'Transport & Parking',
+    question: {
+      en: 'Where can I park my private car or bus?',
+      te: 'సొంత కారు లేదా బస్సును ఎక్కడ పార్క్ చేయవచ్చు?',
+      hi: 'अपनी निजी कार या बस कहाँ पार्क कर सकते हैं?'
+    },
+    answer: {
+      en: 'Outer parking grounds are located at Lalacheruvu (P1) and Diwancheruvu (P2) along NH-16. Free feeder shuttle buses run round-the-clock from these lots directly to the ghats.',
+      te: 'జాతీయ రహదారి వెంబడి లాలాచెరువు (P1), దివాన్‌చెరువు (P2) వద్ద ఉచిత పార్కింగ్ కలదు. అక్కడి నుండి ఉచిత షటిల్ బస్సులు నడుస్తాయి.',
+      hi: 'राष्ट्रीय राजमार्ग पर लालाचेरुवु (P1) और दीवानचेरुवु (P2) में पार्किंग उपलब्ध है, जहाँ से निःशुल्क बसें घाटों तक चलती हैं।'
+    },
+    source: 'Traffic Management Demo',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-06',
+    category: 'Accessibility',
+    question: {
+      en: 'Are there ramps and battery cars for senior citizens and persons with disabilities?',
+      te: 'వృద్ధులు మరియు దివ్యాంగులకు ర్యాంపులు, బ్యాటరీ కార్లు ఉన్నాయా?',
+      hi: 'क्या वरिष्ठ नागरिकों और दिव्यांगों के लिए रैंप और बैटरी कारें उपलब्ध हैं?'
+    },
+    answer: {
+      en: 'Yes, wheelchair ramps are constructed at Kotilingala and Pushkar Ghats. Free battery-operated buggy carts operate from Subbalakshmi Nagar junction directly to the ghat edge.',
+      te: 'అవును, కోటిలింగాల మరియు పుష్కర్ ఘాట్ వద్ద వీల్‌చైర్ ర్యాంపులు, ఉచిత బ్యాటరీ వాహనాలు అందుబాటులో ఉన్నాయి.',
+      hi: 'हाँ, कोटिशिखर और पुष्कर घाट पर व्हीलचेयर रैंप और निःशुल्क बैटरी कारें उपलब्ध हैं।'
+    },
+    source: 'Social Welfare Accessibility Guide',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-07',
+    category: 'Ghats & Snanam',
+    question: {
+      en: 'Is it safe to bathe in the river during night hours?',
+      te: 'రాత్రి సమయాల్లో నదిలో స్నానం చేయడం సురక్షితమేనా?',
+      hi: 'क्या रात के समय नदी में स्नान करना सुरक्षित है?'
+    },
+    answer: {
+      en: 'Only designated illuminated ghats (Pushkar Ghat, Kotilingala) have 24/7 security lighting and lifeguard vigilance. Avoid unlit or isolated riverbanks at all times.',
+      te: 'వెలుతురు మరియు రక్షణ ఉన్న ఘాట్లలో మాత్రమే స్నానం చేయండి. నిర్మానుష్యమైన నది ఒడ్డులకు ఎప్పుడూ వెళ్లవద్దు.',
+      hi: 'केवल पर्याप्त रोशनी और सुरक्षा वाले घाटों पर ही स्नान करें। अंधेरे या एकांत तटों पर कभी न जाएं।'
+    },
+    source: 'River Patrol Safety Advisory',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-08',
+    category: 'Sanitation',
+    question: {
+      en: 'Where are changing rooms and public toilets located?',
+      te: 'బట్టలు మార్చుకునే గదులు మరియు మరుగుదొడ్లు ఎక్కడ ఉన్నాయి?',
+      hi: 'वस्त्र बदलने के कमरे और सार्वजनिक शौचालय कहाँ स्थित हैं?'
+    },
+    answer: {
+      en: 'Designated changing cubicles are provided directly on the ghat steps. Major bio-toilet complexes are situated behind the ghat bus bays and entrance plazas.',
+      te: 'ఘాట్ మెట్ల వద్ద మహిళలకు ప్రత్యేక వస్త్ర మార్పిడి గదులు, బస్ బేల వెనుక బయో టాయిలెట్లు ఉన్నాయి.',
+      hi: 'घाट की सीढ़ियों पर वस्त्र बदलने के कक्ष और बस स्टैंड के पीछे बायो-शौचालय उपलब्ध हैं।'
+    },
+    source: 'Sanitation Cell Guide',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-09',
+    category: 'General',
+    question: {
+      en: 'How can I report a lost wallet or bag?',
+      te: 'పోయిన పర్సు లేదా బ్యాగు గురించి ఎలా ఫిర్యాదు చేయాలి?',
+      hi: 'खोए हुए बटुए या बैग की रिपोर्ट कैसे दर्ज करें?'
+    },
+    answer: {
+      en: 'You can submit a lost item report on the Lost & Found section of this app, or directly report in person to the Police Outpost at Pushkar Ghat Gate 1.',
+      te: 'ఈ యాప్‌లోని తప్పిపోయిన/దొరికిన వస్తువుల విభాగంలో లేదా గేట్ 1 వద్ద ఉన్న పోలీస్ అవుట్‌పోస్ట్‌లో నేరుగా ఫిర్యాదు చేయవచ్చు.',
+      hi: 'आप इस ऐप के लॉस्ट एंड फाउंड सेक्शन में या सीधे गेट 1 पर पुलिस चौकी में रिपोर्ट दर्ज करा सकते हैं।'
+    },
+    source: 'Police Desk Procedure',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-10',
+    category: 'Food Assistance',
+    question: {
+      en: 'Is free food (Annadanam) available for visiting pilgrims?',
+      te: 'యాత్రికులకు ఉచిత అన్నదానం లభిస్తుందా?',
+      hi: 'क्या तीर्थयात्रियों के लिए निःशुल्क अन्नदान उपलब्ध है?'
+    },
+    answer: {
+      en: 'Yes, large seated Annadanam halls operate near Subramanya Swamy Temple grounds serving hygienic satvik lunch and dinner meals daily.',
+      te: 'అవును, సుబ్రహ్మణ్య స్వామి ఆలయ సమీపంలో ఉచిత సాత్విక అన్నదాన భోజన శాలలు కలవు.',
+      hi: 'हाँ, सुब्रमण्य स्वामी मंदिर के पास निःशुल्क सात्विक भोजन उपलब्ध है।'
+    },
+    source: 'Endowments Department Demo',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-11',
+    category: 'General',
+    question: {
+      en: 'What are the essential items to keep in a day pack?',
+      te: 'తీర్థయాత్రలో వెంట ఉంచుకోవలసిన ముఖ్యమైన వస్తువులు ఏమిటి?',
+      hi: 'तीर्थयात्रा के दौरान साथ रखने योग्य आवश्यक वस्तुएं क्या हैं?'
+    },
+    answer: {
+      en: 'Refillable water bottle, ORS packets, cap/umbrella for sun protection, extra dry towel, waterproof pouch for mobile phone, and emergency contact card for children.',
+      te: 'నీళ్ల బాటిల్, ఓఆర్ఎస్ ప్యాకెట్లు, గొడుగు/టోపీ, టవల్, మొబైల్ వాటర్‌ప్రూఫ్ కవర్, పిల్లల గుర్తింపు కార్డు.',
+      hi: 'पानी की बोतल, ओआरएस, टोपी/छाता, तौलिया, मोबाइल वाटरप्रूफ कवर और बच्चों के लिए पहचान कार्ड।'
+    },
+    source: 'Pilgrim Readiness Checklist',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-12',
+    category: 'Medical',
+    question: {
+      en: 'Are there medicines available for heat exhaustion or dehydration?',
+      te: 'డీహైడ్రేషన్ లేదా వడదెబ్బకు మందులు ఎక్కడ లభిస్తాయి?',
+      hi: 'डिहाइड्रेशन या लू लगने पर दवाएं कहाँ उपलब्ध हैं?'
+    },
+    answer: {
+      en: 'All designated first-aid points provide free oral rehydration solution (ORS), electrolytes, glucose, and basic paracetamol / antacids under nursing supervision.',
+      te: 'అన్ని ప్రథమ చికిత్స కేంద్రాలలో ఉచిత ఓఆర్ఎస్, గ్లూకోజ్, అవసరమైన మందులు ఉచితంగా లభిస్తాయి.',
+      hi: 'सभी प्राथमिक उपचार केंद्रों पर निःशुल्क ओआरएस, ग्लूकोज और जरूरी दवाएं उपलब्ध हैं।'
+    },
+    source: 'Health Camp Manual',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-13',
+    category: 'Transport',
+    question: {
+      en: 'How to travel from Rajahmundry Railway Station to the bathing ghats?',
+      te: 'రాజమండ్రి రైల్వే స్టేషన్ నుండి స్నాన ఘాట్లకు ఎలా వెళ్లాలి?',
+      hi: 'राजमुंदरी रेलवे स्टेशन से स्नान घाटों तक कैसे पहुंचे?'
+    },
+    answer: {
+      en: 'Special RTC Pushkar shuttles operate directly from both East and West gates of Rajahmundry Railway Station every 10 minutes towards Pushkar and Kotilingala Ghats.',
+      te: 'రైల్వే స్టేషన్ నుండి ప్రతి 10 నిమిషాలకు ఘాట్లకు ప్రత్యేక ఆర్టీసీ బస్సులు నడుస్తాయి.',
+      hi: 'रेलवे स्टेशन के दोनों द्वारों से हर 10 मिनट में घाटों के लिए विशेष बसें उपलब्ध हैं।'
+    },
+    source: 'APSRTC Pushkar Transit Demo',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-14',
+    category: 'Safety',
+    question: {
+      en: 'Are clothes donation or disposal allowed into the river?',
+      te: 'నదిలోకి పాత బట్టలు విసరడం లేదా వదలడం అనుమతించబడుతుందా?',
+      hi: 'क्या नदी में पुराने कपड़े छोड़ना या विसर्जित करना अनुमत है?'
+    },
+    answer: {
+      en: 'No. Dropping garments or plastic into the holy river is strictly prohibited. Please deposit used clothes into marked municipal collection bins located along the ghat exits.',
+      te: 'నదిలోకి బట్టలు, ప్లాస్టిక్ విసరడం నిషేధం. ఘాట్ నిష్క్రమణ వద్ద ఉన్న సేకరణ బుట్టలలో వేయండి.',
+      hi: 'नदी में कपड़े या प्लास्टिक फेंकना सख्त मना है। निकास द्वार पर रखे डिब्बों में ही डालें।'
+    },
+    source: 'River Cleanliness Mandate',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-15',
+    category: 'Offline Usage',
+    question: {
+      en: 'Can I use this app without active mobile internet connection?',
+      te: 'ఇంటర్నెట్ లేకపోయినా ఈ యాప్‌ను ఉపయోగించవచ్చా?',
+      hi: 'क्या बिना इंटरनेट के भी यह ऐप काम करता है?'
+    },
+    answer: {
+      en: 'Yes! The app caches all essential safety advice, emergency contacts, offline guide, and downloaded facility lists to your phone via PWA storage.',
+      te: 'అవును! ఈ యాప్ అత్యవసర నంబర్లు, భద్రతా సూచనలు, సేవల వివరాలను మీ ఫోన్‌లో ఆఫ్‌లైన్ మోడ్‌లో భద్రపరుస్తుంది.',
+      hi: 'हाँ! यह ऐप आपातकालीन नंबर, सुरक्षा दिशानिर्देश और सुविधाओं की सूची ऑफलाइन मोड में सुरक्षित रखता है।'
+    },
+    source: 'Godavari Sahaaya Architecture',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-16',
+    category: 'Ghats & Snanam',
+    question: {
+      en: 'What are the sacred rituals performed during Pushkaralu?',
+      te: 'పుష్కరాల సమయంలో చేసే పవిత్ర పూజా విధులేవి?',
+      hi: 'पुष्करालु के दौरान किए जाने वाले पवित्र अनुष्ठान क्या हैं?'
+    },
+    answer: {
+      en: 'Pilgrims traditionally observe Godavari Snanam (holy bath), Pitru Tarpanam (homage to ancestors), Pinda Pradanam, Vastra Dhanam, and deepa harati in the evening.',
+      te: 'గోదావరి స్నానం, పితృ తర్పణం, పిండ ప్రదానం, వస్త్ర దానం మరియు సాయంత్రం గోదావరి హారతి సంప్రదాయ విధులలో ముఖ్యమైనవి.',
+      hi: 'गोदावरी स्नान, पितृ तर्पण, पिंडदान, वस्त्र दान और शाम की गोदावरी महाआरती प्रमुख अनुष्ठान हैं।'
+    },
+    source: 'Pushkaralu Cultural Guide',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-17',
+    category: 'Ghats & Snanam',
+    question: {
+      en: 'How deep is the river near the bathing steps?',
+      te: 'స్నానపు మెట్ల వద్ద నది లోతు ఎంత ఉంటుంది?',
+      hi: 'स्नान की सीढ़ियों के पास नदी की गहराई कितनी है?'
+    },
+    answer: {
+      en: 'Steps are engineered for safe standing depth between 2.5 to 3.5 feet. Steel iron chains and safety net cordons mark the safe wading zone. Do not climb over chains.',
+      te: 'మెట్ల వద్ద లోతు 2.5 నుండి 3.5 అడుగుల వరకు మాత్రమే సురక్షితంగా ఉంటుంది. గొలుసులు దాటి ముందుకు వెళ్లవద్దు.',
+      hi: 'सीढ़ियों के पास पानी 2.5 से 3.5 फीट तक सुरक्षित है। लोहे की जंजीरों को लांघकर आगे न बढ़ें।'
+    },
+    source: 'Irrigation & Safety Cell',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-18',
+    category: 'Children & Family',
+    question: {
+      en: 'How to keep young children safe in crowded ghats?',
+      te: 'రద్దీగా ఉండే ఘాట్లలో చిన్న పిల్లల భద్రతకు ఏమి చేయాలి?',
+      hi: 'भीड़भाड़ वाले घाटों में छोटे बच्चों को सुरक्षित कैसे रखें?'
+    },
+    answer: {
+      en: 'Write your active mobile phone number on a waterproof wristband available free at all Police Help Desks. Never leave a child unattended even for a moment.',
+      te: 'పోలీస్ హెల్ప్ డెస్క్ వద్ద లభించే రిస్ట్‌బ్యాండ్‌పై తల్లిదండ్రుల ఫోన్ నంబర్ రాయండి. పిల్లలను ఎప్పుడూ ఒంటరిగా వదలకండి.',
+      hi: 'पुलिस हेल्प डेस्क से मिलने वाले रिस्टबैंड पर माता-पिता का फोन नंबर लिखें। बच्चों को कभी अकेला न छोड़ें।'
+    },
+    source: 'Child Protection Guidelines',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-19',
+    category: 'Security',
+    question: {
+      en: 'Are lockers available to safeguard phones and jewelry?',
+      te: 'మొబైల్ ఫోన్లు, విలువైన వస్తువులను భద్రపరచడానికి లాకర్లు ఉన్నాయా?',
+      hi: 'क्या मोबाइल फोन और कीमती सामान रखने के लिए लॉकर उपलब्ध हैं?'
+    },
+    answer: {
+      en: 'Authorized temporary cloak rooms with receipt tokens are set up at Pushkar Ghat Entrance 2 and Kotilingala North Plaza. It is recommended to leave heavy jewelry at home.',
+      te: 'పుష్కర్ ఘాట్ గేట్ 2 వద్ద తాత్కాలిక క్లోక్‌రూమ్ లాకర్లు ఉన్నాయి. బంగారు ఆభరణాలు ధరించకపోవడం శ్రేయస్కరం.',
+      hi: 'पुष्कर घाट गेट 2 पर अस्थायी लॉकर की सुविधा है। भारी आभूषण साथ न लाने की सलाह दी जाती है।'
+    },
+    source: 'Pilgrim Safety Desk',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-20',
+    category: 'General',
+    question: {
+      en: 'Is there an entry fee to enter the ghats or take a bath?',
+      te: 'ఘాట్లలోకి ప్రవేశించడానికి లేదా స్నానం చేయడానికి ఫీజు ఉందా?',
+      hi: 'क्या घाटों में प्रवेश या स्नान के लिए कोई शुल्क है?'
+    },
+    answer: {
+      en: 'No! Holy bathing at all government Pushkaralu ghats is completely free of charge. If anyone demands money for ghat entry, report immediately to 112 or police desks.',
+      te: 'లేదు! అన్ని ప్రభుత్వ ఘాట్లలో ప్రవేశం మరియు స్నానం పూర్తిగా ఉచితం. ఎవరైనా డబ్బులు అడిగితే పోలీసులకు ఫిర్యాదు చేయండి.',
+      hi: 'नहीं! सभी सरकारी घाटों पर स्नान बिल्कुल निःशुल्क है। कोई शुल्क मांगे तो तुरंत 112 पर शिकायत करें।'
+    },
+    source: 'District Administration Demo',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-21',
+    category: 'Kovvur',
+    question: {
+      en: 'What facilities are available at Goshpada Kshetram Kovvur?',
+      te: 'కొవ్వూరు గోష్పాద క్షేత్రంలో ఏ సదుపాయాలు ఉన్నాయి?',
+      hi: 'कोव्वुर गोष्पद क्षेत्रम में क्या सुविधाएं उपलब्ध हैं?'
+    },
+    answer: {
+      en: 'Goshpada Kshetram has wide stone steps, medical camp, Annadanam hall, RO drinking water, and parking grounds at Kovvur bypass.',
+      te: 'గోష్పాద క్షేత్రంలో విశాలమైన మెట్లు, వైద్య శిబిరం, అన్నదానం, తాగునీరు, బైపాస్ వద్ద పార్కింగ్ కలవు.',
+      hi: 'गोष्पद क्षेत्रम में चौड़ी सीढ़ियाँ, चिकित्सा शिविर, अन्नदान, पेयजल और बाईपास पर पार्किंग उपलब्ध है।'
+    },
+    source: 'Kovvur Sub-division Guide',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-22',
+    category: 'Emergency',
+    question: {
+      en: 'What is the national emergency number in India?',
+      te: 'భారతదేశంలో జాతీయ అత్యవసర సహాయ నంబర్ ఏది?',
+      hi: 'भारत में राष्ट्रीय आपातकालीन नंबर क्या है?'
+    },
+    answer: {
+      en: 'Dial 112 for all emergencies (Police, Fire, Disaster, Ambulance). It is toll-free from any mobile operator without needing mobile balance.',
+      te: 'అన్ని అత్యవసర పరిస్థితులకు 112 కు కాల్ చేయండి. ఇది ఉచిత నంబర్.',
+      hi: 'सभी आपातकालीन स्थितियों के लिए 112 डायल करें। यह पूर्णतः निःशुल्क है।'
+    },
+    source: 'Ministry of Home Affairs Guidelines',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-23',
+    category: 'Health',
+    question: {
+      en: 'What precautions should be taken by diabetic or cardiac patients?',
+      te: 'మధుమేహం లేదా గుండె జబ్బులు ఉన్నవారు ఏ జాగ్రత్తలు తీసుకోవాలి?',
+      hi: 'मधुमेह या हृदय रोगियों को क्या सावधानियां बरतनी चाहिए?'
+    },
+    answer: {
+      en: 'Carry your regular prescription medicines, stay well hydrated, avoid pushing into surging crowds, and use the assisted slow-ramp entry points.',
+      te: 'మీ మందులను వెంట ఉంచుకోండి, పుష్కలంగా నీరు త్రాగండి, అధిక రద్దీకి దూరంగా ఉండి ర్యాంప్ మార్గాలను ఉపయోగించండి.',
+      hi: 'अपनी दवाएं साथ रखें, पर्याप्त पानी पिएं और भीड़ से बचकर रैंप वाले मार्गों का उपयोग करें।'
+    },
+    source: 'Medical Advisory Board',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-24',
+    category: 'AI Assistant',
+    question: {
+      en: 'How does the Godavari Sahaaya AI Assistant work?',
+      te: 'గోదావరి సహాయ AI అసిస్టెంట్ ఎలా పనిచేస్తుంది?',
+      hi: 'गोदावरी सहाय एआई सहायक कैसे काम करता है?'
+    },
+    answer: {
+      en: 'The assistant uses Gemini AI with grounded retrieval from the verified and demo knowledge base to answer questions in Telugu, Hindi, or English. When offline, a deterministic search fallback answers instantly.',
+      te: 'ఈ అసిస్టెంట్ జెమిని AI మరియు నాలెడ్జ్ బేస్ ఆధారంగా తెలుగు, హిందీ, ఇంగ్లీష్ భాషల్లో సమాధానమిస్తుంది. ఇంటర్నెట్ లేకపోయినా ఆఫ్‌లైన్ శోధన ద్వారా పనిచేస్తుంది.',
+      hi: 'यह सहायक जेमिनी एआई और अधिकृत ज्ञानकोष का उपयोग कर तेलुगु, हिंदी या अंग्रेजी में उत्तर देता है। ऑफलाइन होने पर भी तुरंत जवाब देता है।'
+    },
+    source: 'Platform Tech Specs',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-25',
+    category: 'Transport',
+    question: {
+      en: 'Are auto-rickshaw fares regulated during Pushkaralu?',
+      te: 'పుష్కరాల సమయంలో ఆటో ఛార్జీలు నియంత్రించబడుతున్నాయా?',
+      hi: 'क्या पुष्करालु के दौरान ऑटो रिक्शा का किराया नियंत्रित है?'
+    },
+    answer: {
+      en: 'Prepaid auto booths and fixed prepaid rate charts are displayed at the railway station and bus station exits to prevent overcharging. Free government shuttles are also available.',
+      te: 'రైల్వే స్టేషన్ మరియు బస్ స్టాండ్ వద్ద ప్రీపెయిడ్ ఆటో బూత్‌లు, నిర్ణీత ఛార్జీల పట్టికలు ఏర్పాటు చేయబడ్డాయి.',
+      hi: 'रेलवे स्टेशन और बस स्टेशन पर प्रीपेड ऑटो बूथ और निश्चित दरें प्रदर्शित की गई हैं।'
+    },
+    source: 'Traffic Police Advisory',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-26',
+    category: 'River Safety',
+    question: {
+      en: 'Are boats and ferries allowed near the bathing ghats during peak hours?',
+      te: 'రద్దీ వేళల్లో స్నాన ఘాట్ల వద్ద పడవలకు అనుమతి ఉందా?',
+      hi: 'क्या व्यस्त समय में स्नान घाटों के पास नौकाओं की अनुमति है?'
+    },
+    answer: {
+      en: 'No private motorized boats or ferries are permitted within 200 meters of bathing ghats. Only Coastal Police and SDRF rescue speedboats patrol the waters.',
+      te: 'స్నాన ఘాట్ల వద్ద ప్రైవేట్ బోట్లకు అనుమతి లేదు. కేవలం పోలీసు మరియు విపత్తు నివారణ దళాల రెస్క్యూ బోట్లు మాత్రమే ఉంటాయి.',
+      hi: 'स्नान घाटों के 200 मीटर के भीतर निजी नौकाओं पर प्रतिबंध है। केवल पुलिस व राहत दल की नौकाएं गश्त करती हैं।'
+    },
+    source: 'Port & Water Safety Authority',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-27',
+    category: 'Environment',
+    question: {
+      en: 'Are soap and shampoo permitted while taking bath in the river?',
+      te: 'నదిలో స్నానం చేసేటప్పుడు సబ్బు లేదా షాంపూ వాడవచ్చా?',
+      hi: 'क्या नदी में स्नान करते समय साबुन या शैम्पू का उपयोग कर सकते हैं?'
+    },
+    answer: {
+      en: 'No. The use of chemical soaps, shampoos, and detergents in the holy river is strictly prohibited by environmental laws to protect aquatic life and purity.',
+      te: 'లేదు. గోదావరి నది పవిత్రత మరియు జలచరాల రక్షణ దృష్ట్యా సబ్బులు, షాంపూలు వాడటం నిషిద్ధం.',
+      hi: 'नहीं। पवित्र नदी में साबुन, शैम्पू या डिटर्जेंट का उपयोग पर्यावरण नियमों के तहत पूर्णतः प्रतिबंधित है।'
+    },
+    source: 'Pollution Control Board Demo',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-28',
+    category: 'Feedback',
+    question: {
+      en: 'How can I submit suggestions or report an unclean toilet or facility?',
+      te: 'సలహాలు ఇవ్వడం లేదా అపరిశుభ్రమైన మరుగుదొడ్ల గురించి ఎలా ఫిర్యాదు చేయాలి?',
+      hi: 'सुझाव देने या अस्वच्छ शौचालय की रिपोर्ट कैसे करें?'
+    },
+    answer: {
+      en: 'Use the "Feedback" module in this application to describe the facility location and issue. Municipal sanitary supervisors review submissions continuously.',
+      te: 'ఈ యాప్‌లోని "ఫీడ్‌బ్యాక్" విభాగం ద్వారా స్థలం మరియు సమస్యను తెలియజేయవచ్చు.',
+      hi: 'इस ऐप में "फीडबैक" विकल्प द्वारा स्थान और समस्या की रिपोर्ट करें। नगर निगम स्वच्छता दल तुरंत कार्रवाई करता है।'
+    },
+    source: 'Public Grievance System',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-29',
+    category: 'Cultural',
+    question: {
+      en: 'What is the significance of Godavari Pushkaralu?',
+      te: 'గోదావరి పుష్కరాల విశిష్టత ఏమిటి?',
+      hi: 'गोदावरी पुष्करालु का क्या महत्व है?'
+    },
+    answer: {
+      en: 'Celebrated once every 12 years when Jupiter (Brihaspati) enters the zodiac constellation of Leo (Simha Rasi). Millions of pilgrims take holy dips believing all sacred rivers converge in Godavari.',
+      te: 'గురుడు సింహరాశిలోకి ప్రవేశించినప్పుడు ప్రతి 12 సంవత్సరాలకు ఒకసారి గోదావరి పుష్కరాలు ఘనంగా జరుగుతాయి. ఈ సమయంలో సమస్త పుణ్యతీర్థాలు గోదావరిలో నివసిస్తాయని విశ్వాసం.',
+      hi: 'बृहस्पति के सिंह राशि में प्रवेश करने पर हर 12 वर्ष में एक बार आयोजित होता है। मान्यता है कि इस समय सभी पवित्र नदियां गोदावरी में समाहित होती हैं।'
+    },
+    source: 'Pushkaralu History & Heritage',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  },
+  {
+    id: 'faq-30',
+    category: 'Admin',
+    question: {
+      en: 'How does an authorized administrator update verified records?',
+      te: 'అధికారిక నిర్వాహకులు ధృవీకరించబడిన సమాచారాన్ని ఎలా నవీకరిస్తారు?',
+      hi: 'अधिकृत प्रशासक सत्यापित रिकॉर्ड कैसे अपडेट करते हैं?'
+    },
+    answer: {
+      en: 'Administrators authenticate via the secure Admin Dashboard where they can mark demo facilities as verified, broadcast official safety alerts, and manage incoming reports.',
+      te: 'అడ్మిన్ డాష్‌బోర్డ్ ద్వారా సురక్షిత లాగిన్ చేసి రికార్డులను వెరిఫై చేయడం మరియు హెచ్చరికలను ప్రచురించడం చేయవచ్చు.',
+      hi: 'प्रशासक सुरक्षित एडमिन डैशबोर्ड के माध्यम से लॉग इन कर डेमो डेटा को सत्यापित कर सकते हैं और आधिकारिक अलर्ट जारी कर सकते हैं।'
+    },
+    source: 'Admin Operations Guide',
+    verificationStatus: 'DEMO',
+    isDemo: true
+  }
+];
+
+export const INITIAL_SAFETY_GUIDELINES: SafetyGuideline[] = [
+  {
+    id: 'safe-01',
+    title: {
+      en: 'Stay Within Protective Chains & Barricades',
+      te: 'రక్షణ గొలుసులు మరియు బారికేడ్ల పరిధిలోనే ఉండండి',
+      hi: 'सुरक्षा जंजीरों और बैरिकेड्स के भीतर रहें'
+    },
+    content: {
+      en: 'Riverbed depth can drop abruptly. Hold on to the submerged safety chains installed along the ghat steps. Never attempt to swim across the river or cross warning buoys.',
+      te: 'నది లోతు అకస్మాత్తుగా మారవచ్చు. మెట్ల వద్ద అమర్చిన ఇనుప రక్షణ గొలుసులను పట్టుకుని మాత్రమే స్నానం చేయండి. ఎట్టిపరిస్థితుల్లోనూ లోతుకు ఈదకండి.',
+      hi: 'नदी की गहराई अचानक बढ़ सकती है। सीढ़ियों पर लगी सुरक्षा जंजीरों को पकड़कर ही स्नान करें। कभी भी चेतावनी ब्वॉय को पार न करें।'
+    },
+    icon: 'Waves',
+    category: 'river_safety'
+  },
+  {
+    id: 'safe-02',
+    title: {
+      en: 'Do Not Panic in Surging Crowds (Move with the Flow)',
+      te: 'రద్దీలో తొక్కిసలాట రాకుండా ప్రశాంతంగా మెలగండి',
+      hi: 'भीड़ में घबराएं नहीं और कतार के साथ चलें'
+    },
+    content: {
+      en: 'Always enter and exit through designated one-way barricaded queues. Avoid stopping suddenly at entrance bottlenecks. Keep both hands free or hold children tightly.',
+      te: 'నిర్ణయించిన వన్-వే క్యూ లైన్లలో మాత్రమే నడవండి. ప్రవేశ ద్వారాల వద్ద అనవసరంగా ఆగవద్దు. తొందరపాటు లేకుండా ప్రశాంతంగా ముందుకు సాగండి.',
+      hi: 'केवल निर्धारित वन-वे कतारों में चलें। प्रवेश द्वारों पर अचानक न रुकें और बच्चों का हाथ कसकर पकड़ें।'
+    },
+    icon: 'Users',
+    category: 'crowd_management'
+  },
+  {
+    id: 'safe-03',
+    title: {
+      en: 'Child Safety Identification Tagging',
+      te: 'పిల్లలకు గుర్తింపు బ్యాండ్ ధరింపజేయండి',
+      hi: 'बच्चों को पहचान टैग अवश्य पहनाएं'
+    },
+    content: {
+      en: 'Collect a free waterproof wristband at any Police Help Desk and write your mobile number and native town on it. Teach children to approach uniformed personnel if separated.',
+      te: 'పోలీస్ హెల్ప్ డెస్క్ వద్ద ఉచిత రిస్ట్‌బ్యాండ్ తీసుకొని మీ మొబైల్ నంబర్ రాయండి. తప్పిపోతే పోలీసులను సంప్రదించాలని పిల్లలకు వివరించండి.',
+      hi: 'पुलिस हेल्प डेस्क से वाटरप्रूफ रिस्टबैंड लें और उस पर अपना फोन नंबर लिखें। बच्चों को पुलिस से मदद मांगना सिखाएं।'
+    },
+    icon: 'ShieldAlert',
+    category: 'children_seniors'
+  },
+  {
+    id: 'safe-04',
+    title: {
+      en: 'Prevent Heat Exhaustion & Dehydration',
+      te: 'వడదెబ్బ మరియు డీహైడ్రేషన్ నుండి రక్షణ',
+      hi: 'लू और डिहाइड्रेशन से बचाव'
+    },
+    content: {
+      en: 'Temperatures can rise rapidly during noon hours. Carry a water bottle, wear a lightweight hat or umbrella, and drink oral rehydration fluids at municipal kiosks.',
+      te: 'ఎండ తీవ్రత నుండి రక్షణకు గొడుగు లేదా టోపీ ఉపయోగించండి. తగినంత మంచినీరు, ఓఆర్ఎస్ లేదా మజ్జిగ త్రాగండి.',
+      hi: 'धूप से बचने के लिए छाता या टोपी लगाएं और नगर निगम के बूथों से पानी व ओआरएस का सेवन करें।'
+    },
+    icon: 'Sun',
+    category: 'heat_health'
+  },
+  {
+    id: 'safe-05',
+    title: {
+      en: 'Pre-Decide a Family Meeting Landmark',
+      te: 'కుటుంబ సభ్యులతో సమావేశ స్థలాన్ని ముందే నిర్ణయించుకోండి',
+      hi: 'परिवार के साथ एक निश्चित मिलन स्थल तय करें'
+    },
+    content: {
+      en: 'Before descending to the ghats, agree on a prominent meeting spot (e.g., Police Outpost Gate 1, Subbalakshmi Fountain) in case phone batteries discharge or networks get congested.',
+      te: 'ఫోన్ నెట్‌వర్క్ రద్దీ లేదా ఛార్జింగ్ సమస్యలు వస్తే కలవడానికి ఒక నిర్దిష్ట గుర్తుగల ప్రదేశాన్ని కుటుంబంతో ముందే మాట్లాడుకోండి.',
+      hi: 'घाट पर जाने से पहले एक प्रमुख लैंडमार्क तय कर लें, ताकि फोन बंद होने पर भी वहां मिला जा सके।'
+    },
+    icon: 'MapPin',
+    category: 'lost_person'
+  },
+  {
+    id: 'safe-06',
+    title: {
+      en: 'Immediate Action for Lost Person or Child',
+      te: 'వ్యక్తి లేదా పిల్లలు తప్పిపోతే వెంటనే చేయవలసిన పని',
+      hi: 'व्यक्ति या बच्चे के खो जाने पर तुरंत कार्रवाई'
+    },
+    content: {
+      en: 'Go straight to the nearest Police Help Desk or Public Address Room. Operators will instantly flash details across the integrated wireless network and all ghat speakers.',
+      te: 'వెంటనే సమీప పోలీస్ డెస్క్‌కు వెళ్లి సమాచారం ఇవ్వండి. వెంటనే అన్ని ఘాట్లలో మైక్ ప్రకటనలు మరియు వైర్‌లెస్ సందేశాలు పంపబడతాయి.',
+      hi: 'तुरंत निकटतम पुलिस डेस्क पर जाएं। सभी घाटों के लाउडस्पीकर पर तत्काल घोषणा कराई जाएगी।'
+    },
+    icon: 'Megaphone',
+    category: 'lost_person'
+  },
+  {
+    id: 'safe-07',
+    title: {
+      en: 'National Emergency Helpline 112',
+      te: 'జాతీయ అత్యవసర హెల్ప్‌లైన్ 112',
+      hi: 'राष्ट्रीय आपातकालीन हेल्पलाइन 112'
+    },
+    content: {
+      en: 'India’s 112 is a free, all-in-one emergency service reachable from any mobile phone for Police, Ambulance, Fire, and State Disaster Response Force (SDRF).',
+      te: 'పోలీస్, అంబులెన్స్, అగ్నిమాపక, విపత్తు సహాయం కోసం ఏదైనా ఫోన్ నుండి 112 కు ఉచితంగా కాల్ చేయవచ్చు.',
+      hi: 'पुलिस, एम्बुलेंस और आपदा राहत के लिए किसी भी मोबाइल से 112 पर निःशुल्क कॉल करें।'
+    },
+    icon: 'PhoneCall',
+    category: 'emergency_contacts'
+  },
+  {
+    id: 'safe-08',
+    title: {
+      en: 'Elderly Assistance & Safe Pace',
+      te: 'వృద్ధుల సంరక్షణ మరియు నెమ్మదిగా నడవడం',
+      hi: 'बुजुर्गों की देखभाल और सुरक्षित गति'
+    },
+    content: {
+      en: 'Utilize dedicated battery-operated buggies and ramp entrances for seniors. Do not rush on wet slippery ghat steps; hold railings firmly.',
+      te: 'వృద్ధుల కోసం ఉచిత బ్యాటరీ వాహనాలు, ర్యాంప్ మార్గాలను వాడండి. తడిసిన మెట్లపై పట్టు తప్పకుండా రెయిలింగ్ పట్టుకోండి.',
+      hi: 'बुजुर्गों के लिए बैटरी गाड़ी और रैंप का उपयोग करें। गीली सीढ़ियों पर रेलिंग पकड़कर सावधानी से चलें।'
+    },
+    icon: 'HeartHandshake',
+    category: 'children_seniors'
+  },
+  {
+    id: 'safe-09',
+    title: {
+      en: 'Keep Sacred Godavari Clean (Clean Ghats)',
+      te: 'పవిత్ర గోదావరిని శుభ్రంగా ఉంచండి',
+      hi: 'पवित्र गोदावरी को स्वच्छ रखें'
+    },
+    content: {
+      en: 'Do not discard plastic wrappers, plastic bottles, or used clothing into the river. Use dedicated eco-bins situated at every ghat concourse.',
+      te: 'ప్లాస్టిక్ వ్యర్థాలు, వాడిన వస్త్రాలను నదిలోకి విసరవద్దు. ఘాట్ల వద్ద ఉన్న చెత్త బుట్టలలో మాత్రమే వేయండి.',
+      hi: 'प्लास्टिक कचरा या पुराने कपड़े नदी में न बहाएं। घाट पर लगे कूड़ेदानों का ही उपयोग करें।'
+    },
+    icon: 'Sparkles',
+    category: 'river_safety'
+  },
+  {
+    id: 'safe-10',
+    title: {
+      en: 'First-Aid at First Sign of Dizziness or Chest Discomfort',
+      te: 'తలతిరగడం లేదా అసౌకర్యం అనిపిస్తే వెంటనే ప్రథమ చికిత్స',
+      hi: 'चक्कर या घबराहट महसूस होने पर तुरंत प्राथमिक उपचार'
+    },
+    content: {
+      en: 'If you or someone nearby feels faint, move immediately into shaded ventilation, elevate feet slightly, and alert the nearest red-cross medical volunteer.',
+      te: 'నీరసం లేదా కళ్లు తిరిగినట్లు అనిపిస్తే వెంటనే నీడలోకి వెళ్లి కాళ్లను కొద్దిగా పైకి ఉంచండి మరియు సమీప వైద్య వాలంటీర్‌ను పిలవండి.',
+      hi: 'चक्कर आने पर तुरंत छांव में बैठें और पास के रेड-क्रॉस मेडिकल वॉलंटियर को सूचित करें।'
+    },
+    icon: 'Activity',
+    category: 'heat_health'
+  }
+];

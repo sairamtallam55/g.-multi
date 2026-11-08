@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bgGrad192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a2540" />
+      <stop offset="60%" stop-color="#0f4c64" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    <linearGradient id="goldGrad192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <linearGradient id="riverGrad192" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#a7f3d0" />
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="40" fill="url(#bgGrad192)" />
+  <circle cx="96" cy="70" r="28" fill="url(#goldGrad192)" opacity="0.85" />
+  <path d="M 96 38 L 104 56 L 110 56 L 106 70 L 116 70 L 112 86 L 122 86 L 118 102 L 74 102 L 70 86 L 80 86 L 76 70 L 86 70 L 82 56 L 88 56 Z" fill="#ffffff" opacity="0.95" />
+  <circle cx="96" cy="34" r="4" fill="url(#goldGrad192)" />
+  <path d="M 20 125 C 45 112 68 132 96 122 C 124 112 147 130 172 122 L 172 138 C 147 146 124 128 96 138 C 68 148 45 128 20 140 Z" fill="url(#riverGrad192)" opacity="0.95" />
+  <path d="M 20 142 C 48 132 71 150 96 140 C 121 130 144 148 172 140 L 172 154 C 144 162 121 144 96 154 C 71 164 48 146 20 156 Z" fill="#38bdf8" opacity="0.8" />
+  <!-- Diya -->
+  <ellipse cx="96" cy="120" rx="14" ry="5" fill="#d97706" />
+  <ellipse cx="96" cy="119" rx="11" ry="3.5" fill="#fbbf24" />
+  <path d="M 96 104 Q 101 114 96 118 Q 91 114 96 104 Z" fill="#ef4444" />
+</svg>
